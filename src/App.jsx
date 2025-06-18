@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Projects from "./components/projects/Projects";
 import Contact from "./components/contact/Contact";
+import { FaGithub, FaGit, FaLinkedin, FaInstagram } from "react-icons/fa";
 function App() {
   const { theme } = useContext(ThemeContext);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -86,48 +87,68 @@ function App() {
             <Home />
           </div>
 
-          <div className="pt-24 lg:w-[58%] lg:py-24 lg:pt-0 ">
-            <motion.section
-              id="about"
-              className="pt-5 mb-16 scroll-mt-20 lg:scroll-mt-24"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <About />
-            </motion.section>
+          <div className="flex flex-col min-h-screen lg:w-[58%] lg:ml-auto">
+            <div className="flex-grow">
+              <motion.section
+                id="about"
+                className="pt-5 mb-16 scroll-mt-20 lg:scroll-mt-24 mb-24"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+              >
+                <About />
+              </motion.section>
 
-            <motion.section
-              id="experience" // Changed ID to be unique
-              className="mb-16 scroll-mt-16 md:mb-24 lg:mb-12 lg:scroll-mt-20"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+              <motion.section
+                id="experience" // Changed ID to be unique
+                className="mb-16 scroll-mt-28 md:mb-24 lg:mb-12 lg:scroll-pt-35"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+              >
+                <Experience />
+              </motion.section>
+              <motion.section
+                id="projects"
+                className="pt-5 mb-16 scroll-mt-20 lg:scroll-mt-24 mb-28"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+              >
+                <Projects />
+              </motion.section>
+              <motion.section
+                id="contact"
+                className="pt-5 mb-16 scroll-mt-20 lg:scroll-mt-24"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+              >
+                <Contact />
+              </motion.section>
+            </div>
+
+            <motion.footer
+              className="mt-auto pt-6 pb-8 w-full border-t border-gray-200 dark:border-gray-800"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
             >
-              <Experience />
-            </motion.section>
-            <motion.section
-              id="projects"
-              className="pt-5 mb-16 scroll-mt-20 lg:scroll-mt-24"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <Projects />
-            </motion.section>
-            <motion.section
-              id="contact"
-              className="pt-5 mb-16 scroll-mt-20 lg:scroll-mt-24"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <Contact />
-            </motion.section>
+              <div
+                className={`text-sm ${
+                  theme === "dark" ? "text-gray-400" : "text-gray-600"
+                }`}
+              >
+                <p>Designed & Built by Daniel Sebastian Quilatan</p>
+                <p className="mt-1">
+                  © {new Date().getFullYear()} All Rights Reserved
+                </p>
+              </div>
+            </motion.footer>
           </div>
         </div>
       </div>

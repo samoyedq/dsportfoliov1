@@ -46,7 +46,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience">
+    <section id="experience" className="mb-24">
       <div className="sticky top-[3.8rem] z-30 py-4 flex overflow-hidden mb-6 md:static md:py-0 sticky-background">
         <motion.h2
           className={`text-3xl font-bold ${
