@@ -1,10 +1,10 @@
 .skill-icons-grid {
 display: grid;
   grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-  gap: 1.5rem;
+  gap: 1.3rem;
   margin: 1rem auto; /* Added auto margins for horizontal centering */
   justify-content: center; /* Center grid items horizontally */
-  max-width: 500px; /* Optional: limit width for better layout */
+  width: 80%;
 }
 
 .skill-icon {
@@ -56,7 +56,7 @@ display: grid;
 
 /* Dark mode styles */
 .dark .skill-icon img {
-  filter: grayscale(70%) brightness(1.2);
+  filter: grayscale(30%) brightness(1.2);
 }
 
 .dark .skill-icon:hover img {

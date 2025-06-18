@@ -112,7 +112,7 @@ function App() {
               </motion.section>
               <motion.section
                 id="projects"
-                className="pt-5 mb-16 scroll-mt-20 lg:scroll-mt-24 mb-28"
+                className="pt-5 mb-16 scroll-mt-20 lg:scroll-mt-24 mb-28 px-0"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
