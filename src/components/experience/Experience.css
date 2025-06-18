@@ -1,0 +1,93 @@
+/* Add this container effect to lower opacity of non-hovered items */
+.experience-container:hover .experience-item {
+  opacity: 0.3 !important;
+  filter: grayscale(20%);
+  transform: scale(0.98);
+  transition: all 0.3s ease-in-out;
+}
+.experience-container {
+  position: relative; /* Create positioning context */
+}
+
+/* Keep the hovered item at full opacity */
+.experience-container .experience-item:hover {
+  opacity: 1 !important;
+  filter: grayscale(0%);
+  transform: scale(1);
+  z-index: 1; /* Ensure hovered item appears above others */
+}
+.box-hover {
+  border-radius: 12px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid transparent;
+}
+/* Fix: Proper hover selector syntax */
+.box-hover:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle light background */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
+}
+
+.dark .box-hover:hover {
+  background-color: rgba(0, 0, 0, 0.2); /* Subtle dark background */
+}
+
+.arrow-icon {
+  color: inherit;
+  transition: color 0.1s ease, transform 0.1s ease;
+}
+
+/* Light theme icon hover color */
+.experience-item:hover .arrow-icon {
+  color: #57d9d5 !important; /* Blue on hover for light mode */
+}
+
+/* Dark theme icon hover color */
+.dark .experience-item:hover .arrow-icon {
+  color: #57d9d5 !important; /* Lighter blue on hover for dark mode */
+}
+
+/* Experience title hover color */
+.experience-item:hover .experience-title {
+  color: #57d9d5 !important;
+}
+
+.dark .experience-item:hover .experience-title {
+  color: #57d9d5 !important;
+}
+.arrow-icon {
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.project-title:hover .arrow-icon {
+  transform: translate(4px, -2px);
+}
+/* Update arrow animation */
+.arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.experience-item:hover .arrow-icon {
+  transform: translate(4px, -2px); /* Move up and right on hover */
+}
+
+/* Make sure color transitions also work */
+.experience-item:hover .experience-title {
+  color: #57d9d5 !important;
+}
+
+.dark .experience-item:hover .experience-title {
+  color: #57d9d5 !important;
+}
+
+.experience-item:hover .arrow-icon {
+  color: #57d9d5 !important; 
+}
+
+.dark .experience-item:hover .arrow-icon {
+  color: #57d9d5 !important;
+}

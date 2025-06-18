@@ -1,0 +1,29 @@
+
+
+
+
+@media screen and (max-width: 968px) {
+  .sticky-background {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+       padding: 1rem 2.3rem;
+          
+
+  }
+    
+}
+
+
+
+
+.dark .sticky-background {
+  background-color: var(--background-dark); /* Dark mode - semi-transparent navy/dark blue */
+  color: white;
+
+  
+  
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
+
+

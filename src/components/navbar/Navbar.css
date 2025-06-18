@@ -1,0 +1,249 @@
+/* Navbar main container */
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9); /* Light mode - semi-transparent white */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+ z-index: 50;
+  transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  color: var(--background-dark); /* Default text color for light mode */
+}
+
+/* Dark mode navbar styling */
+.dark .navbar {
+  background-color: var(--background-dark); /* Dark mode - semi-transparent navy/dark blue */
+  color: white;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
+
+@media screen and (max-width: 1540px) {
+  .navbar {
+    padding: 1rem 2.1rem;
+  }
+}
+
+/* Logo section - ensure contrast in both modes */
+.navbar-logo {
+  width: 6rem;
+  height: 1rem;
+
+ 
+  
+}
+
+.dark .navbar-logo a {
+  color: white; /* White text for dark mode */
+}
+
+/* Ensure accent colors are visible in both modes */
+.navbar-logo-accent {
+  color: #2563eb; /* Blue for light mode */
+}
+
+.dark .navbar-logo-accent {
+  color: #60a5fa; /* Lighter blue for dark mode */
+}
+/* Desktop navigation */
+.navbar-desktop-menu {
+  display: none;
+  align-items: end;
+  justify-content: end;
+  gap: 2rem;
+  flex: 1;
+  margin: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-desktop-menu {
+    display: flex;
+  }
+}
+
+.navbar-desktop-menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.navbar-desktop-menu a {
+  position: relative;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.dark .navbar-desktop-menu a {
+  color: #e5e7eb;
+}
+
+.navbar-desktop-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: currentColor;
+  transition: all 0.3s ease;
+}
+
+.navbar-desktop-menu a:hover::after {
+  width: 100%;
+}
+
+/* Mobile navigation */
+.navbar-mobile-menu {
+  position: fixed;
+  top: 78px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  width: 100%;
+  height: calc(100vh - 72px);
+  transform: translateX(100%);
+  background-color: rgba(255, 255, 255, 1);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.dark .navbar-mobile-menu {
+  background-color: rgba(17, 24, 39, 0.95);
+}
+
+.navbar-mobile-menu.active {
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .navbar-mobile-menu {
+    display: none;
+  }
+}
+
+.navbar-mobile-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-mobile-content ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.navbar-mobile-content li {
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.navbar-mobile-content a {
+  display: block;
+  padding: 1rem 0;
+  font-weight: 500;
+}
+
+/* Right side items */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Resume button */
+.resume-btn {
+  display: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #3b82f6;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.dark .resume-btn {
+   background-color: #3b82f6;
+}
+
+.resume-btn:hover {
+  background-color: #57d9d5 !important;
+  color: white !important;
+}
+
+.dark .resume-btn:hover {
+  background-color: #57d9d5 !important;
+}
+
+@media (min-width: 768px) {
+  .resume-btn {
+    display: block;
+  }
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  background-color: #f3f4f6;
+  color: #4f46e5;
+  transition: background-color 0.3s ease;
+}
+
+.dark .theme-toggle-btn {
+  background-color: #1f2937;
+  color: #fbbf24;
+}
+
+.theme-toggle-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.dark .theme-toggle-btn:hover {
+  background-color: #374151;
+}
+
+/* Mobile menu toggle */
+.mobile-toggle-btn {
+  padding: 0.5rem;
+  border-radius: 9999px;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  transition: background-color 0.3s ease;
+}
+
+.dark .mobile-toggle-btn {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.mobile-toggle-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.dark .mobile-toggle-btn:hover {
+  background-color: #374151;
+}
+
+@media (min-width: 768px) {
+  .mobile-toggle-btn {
+    display: none;
+  }
+}

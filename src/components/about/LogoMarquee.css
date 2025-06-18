@@ -1,0 +1,171 @@
+.logo-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  padding: 2rem 0;
+  display: flex;
+  height: 8rem;
+}
+
+.logo-marquee {
+  display: flex;
+  width: fit-content;
+  animation: marquee 60s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee:hover {
+  animation-play-state: paused;
+}
+
+.logo-marquee-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  padding: 0 1rem;
+}
+
+.logo-item {
+  flex: 0 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Light mode - grayscale by default, colored on hover */
+.logo-item img {
+  height: 3rem;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.logo-item:hover img {
+  filter: grayscale(0%); /* Show natural colors */
+  opacity: 1;
+}
+
+/* Dark mode - handle SVG colors properly */
+[data-theme="dark"] .logo-item img,
+.dark .logo-item img {
+  /* Less grayscale, slightly brightened, no invert for colored logos */
+  filter: grayscale(80%) brightness(1.2);
+  opacity: 0.7;
+}
+
+[data-theme="dark"] .logo-item:hover img,
+.dark .logo-item:hover img {
+  /* Fully colored on hover with brightness boost */
+  filter: grayscale(0%) brightness(1.4);
+  opacity: 1;
+}
+
+/* Special case for logos that need inversion in dark mode */
+[data-theme="dark"] .logo-item.needs-invert img,
+.dark .logo-item.needs-invert img {
+  filter: grayscale(90%) brightness(1.2) invert(0.8);
+}
+
+[data-theme="dark"] .logo-item.needs-invert:hover img,
+.dark .logo-item.needs-invert:hover img {
+  filter: grayscale(0%) brightness(1.4) invert(0.8);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo-item {
+    padding: 0 1rem;
+  }
+  .logo-item img {
+    height: 2rem;
+  }
+}
+
+/* Add to LogoMarquee.css */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-tooltip {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 60;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Fade in effect */
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  
+  /* Prevent tooltip from affecting marquee flow */
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Show tooltip on hover */
+.tooltip-container:hover .logo-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Add arrow pointing down from tooltip */
+.logo-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+/* Dark mode adjustments for tooltip */
+.dark .logo-tooltip {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #111827;
+}
+
+.dark .logo-tooltip::after {
+  border-color: rgba(255, 255, 255, 0.9) transparent transparent transparent;
+}
+
+/* Make sure the tooltip container doesn't affect the logo display */
+.logo-item .tooltip-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Pause animation when hovering to see tooltip better */
+.logo-item:hover ~ .logo-marquee {
+  animation-play-state: paused;
+}

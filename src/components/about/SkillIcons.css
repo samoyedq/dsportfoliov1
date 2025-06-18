@@ -1,0 +1,146 @@
+.skill-icons-grid {
+display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 1.5rem;
+  margin: 1rem auto; /* Added auto margins for horizontal centering */
+  justify-content: center; /* Center grid items horizontally */
+  max-width: 500px; /* Optional: limit width for better layout */
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.skill-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: grayscale(50%);
+  opacity: 0.8;
+}
+
+/* .skill-icons-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto;
+  width: 100%;
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; 
+  height: 60px; 
+}
+.skill-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: grayscale(50%);
+  opacity: 0.8;
+} */
+
+.skill-icon:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Dark mode styles */
+.dark .skill-icon img {
+  filter: grayscale(70%) brightness(1.2);
+}
+
+.dark .skill-icon:hover img {
+  filter: grayscale(0%) brightness(1.3);
+}
+
+/* For dark icons in dark mode */
+.dark .skill-icon.needs-invert img {
+  filter: grayscale(30%) brightness(1.2) invert(0.8);
+}
+
+.dark .skill-icon.needs-invert:hover img {
+  filter: grayscale(0%) brightness(1.3) invert(1);
+}
+
+/* Tooltip container */
+.skill-tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip style */
+.skill-tooltip {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  
+  /* Position */
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Animation */
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  
+  /* Prevent wrapping */
+  white-space: nowrap;
+}
+
+/* Show tooltip on hover */
+.skill-tooltip-container:hover .skill-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Tooltip arrow */
+.skill-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+/* Dark mode tooltip */
+.dark .skill-tooltip {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #111827;
+}
+
+.dark .skill-tooltip::after {
+  border-color: rgba(255, 255, 255, 0.9) transparent transparent transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skill-icons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 1rem;
+  }
+  
+  .skill-icon img {
+    width: 32px;
+    height: 32px;
+  }
+}
